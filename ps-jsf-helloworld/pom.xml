@@ -26,6 +26,7 @@
     </dependencies>
 
     <build>
+        <finalName>ps-jsf-helloworld</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
