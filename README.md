@@ -4,4 +4,4 @@ These are the updated example projects for the course [Java EE: Getting Started 
 
 The original course was produced at the end of 2016, and some of the tools that I've used in the course unfortunately have become obsolete. For example, the GlassFish Tools for Eclipse do not work anymore in newer versions of Eclipse (and I think they are not even available at all anymore).
 
-In this video I explain how you can use the current version of Eclipse and WildFly instead of GlassFish to work with the examples: TODO
+In this video I explain how you can use the current version of Eclipse and WildFly instead of GlassFish to work with the examples: [JavaServer Faces Course - Update December 2021](https://youtu.be/-Jbuy8aaLVA)
