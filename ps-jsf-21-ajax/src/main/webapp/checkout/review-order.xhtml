@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<f:view contentType="text/html" contracts="common,device-desktop,theme-#{theme.name}">
+    <ui:composition template="/templates/page-template.xhtml">
+        <ui:param name="pageTitle" value="Review Order"/>
+        <ui:define name="panel-top">
+            <section>
+                <h1>Review Order</h1>
+                <p>Please review your order.</p>
+            </section>
+        </ui:define>
+        <ui:define name="panel-main">
+            <section>
+                <h:form>
+                    <h:dataTable value="#{shoppingCart.lines}" var="line"
+                                 styleClass="shoppingcart-table"
+                                 headerClass="shoppingcart-header"
+                                 rowClasses="shoppingcart-row-odd,shoppingcart-row-even"
+                                 columnClasses="shoppingcart-col-name,shoppingcart-col-price,shoppingcart-col-quantity,shoppingcart-col-amount"
+                                 footerClass="shoppingcart-footer">
+                        <h:column>
+                            <f:facet name="header">Product</f:facet>
+                            #{line.product.name}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Price</f:facet>
+                            <h:outputText value="#{line.product.price}">
+                                <f:convertNumber type="currency" currencySymbol="$"/>
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Quantity</f:facet>
+                            #{line.quantity}
+                            <h:commandButton value="+" action="#{shoppingCart.addProduct(line.product)}" style="margin-left: 0.25em;"/>
+                            <h:commandButton value="-" action="#{shoppingCart.removeProduct(line.product)}" style="margin-left: 0.25em;"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Amount</f:facet>
+                            <h:outputText value="#{line.amount}">
+                                <f:convertNumber type="currency" currencySymbol="$"/>
+                            </h:outputText>
+                            <f:facet name="footer">
+                                <h:outputText value="#{shoppingCart.totalAmount}">
+                                    <f:convertNumber type="currency" currencySymbol="$"/>
+                                </h:outputText>
+                            </f:facet>
+                        </h:column>
+                    </h:dataTable>
+                    <p>Ship to: #{checkout.shippingName}, #{checkout.shippingAddress}, #{checkout.shippingCity}</p>
+                    <p>Pay with: credit card #{checkout.creditCardNumber}, under name: #{checkout.paymentName}</p>
+                    <h:commandButton value="Confirm" action="execute" styleClass="button-right"/>
+                    <h:commandButton value="Cancel" action="finished" styleClass="button-right"/>
+                </h:form>
+            </section>
+        </ui:define>
+    </ui:composition>
+</f:view>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<f:view contentType="text/html" contracts="common,device-desktop,theme-#{theme.name}">
+    <ui:composition template="/templates/page-template.xhtml">
+        <ui:param name="pageTitle" value="Payment Details"/>
+        <ui:define name="panel-top">
+            <section>
+                <h1>Payment Details</h1>
+                <p>Please enter your payment details.</p>
+            </section>
+        </ui:define>
+        <ui:define name="panel-main">
+            <section>
+                <h:messages styleClass="validation-messages"/>
+                <h:form>
+                    <h:panelGrid columns="2" styleClass="form-grid" columnClasses="form-column-label,form-column-input">
+                        <h:outputLabel for="name">Name</h:outputLabel>
+                        <h:inputText id="name" value="#{checkout.paymentName}" size="30"/>
+
+                        <h:outputLabel for="cardType">Credit card type</h:outputLabel>
+                        <h:selectOneMenu id="cardType">
+                            <f:selectItem itemLabel="American Express" itemValue="AMEX"/>
+                            <f:selectItem itemLabel="MasterCard" itemValue="MC"/>
+                            <f:selectItem itemLabel="VISA" itemValue="VISA"/>
+                        </h:selectOneMenu>
+
+                        <h:outputLabel for="cardNumber">Credit card number</h:outputLabel>
+                        <h:inputText id="cardNumber" value="#{checkout.creditCardNumber}" size="16"/>
+
+                        <h:outputText value=""/>
+                        <h:commandButton value="Continue" action="review"/>
+
+                        <h:outputText value=""/>
+                        <h:commandButton value="Cancel" action="finished"/>
+                    </h:panelGrid>
+                </h:form>
+            </section>
+        </ui:define>
+    </ui:composition>
+</f:view>
+</html>

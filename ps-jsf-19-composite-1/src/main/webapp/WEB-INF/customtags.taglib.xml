@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<facelet-taglib version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd">
+    <namespace>http://jesperdj.com/jsf/musicshop</namespace>
+    <tag>
+        <tag-name>phoneNumber</tag-name>
+        <source>tags/phone-number.xhtml</source>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>value</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+    <tag>
+        <tag-name>inputDate</tag-name>
+        <source>tags/input-date.xhtml</source>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>value</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+    <tag>
+        <tag-name>selectYesNo</tag-name>
+        <source>tags/select-yes-no.xhtml</source>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>value</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+</facelet-taglib>

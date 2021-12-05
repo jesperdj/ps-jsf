@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<f:view contentType="text/html" contracts="common,device-desktop,theme-#{theme.name}">
+    <ui:composition template="/templates/page-template.xhtml">
+        <ui:param name="pageTitle" value="Payment Successful"/>
+        <ui:define name="panel-top">
+            <section>
+                <h1>Payment Successful</h1>
+                <p>Thank you for ordering!</p>
+            </section>
+        </ui:define>
+        <ui:define name="panel-main">
+            <section>
+                <p>Your payment of
+                    <h:outputText value="#{shoppingCart.totalAmount}">
+                        <f:convertNumber type="currency" currencySymbol="$"/>
+                    </h:outputText>
+                    was successful.</p>
+                <h:form>
+                    <h:commandButton value="Finish" action="#{checkout.finishOrder}" styleClass="button-right"/>
+                </h:form>
+            </section>
+        </ui:define>
+    </ui:composition>
+</f:view>
+</html>

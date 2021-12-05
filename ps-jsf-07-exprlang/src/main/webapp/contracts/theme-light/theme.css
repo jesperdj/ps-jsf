@@ -1,0 +1,26 @@
+body {
+    background-color: #e5e5e5;
+}
+
+a:link, a:visited {
+    color: #1f778d;
+}
+
+a:hover, a:active {
+    color: #76cbe0;
+}
+
+body > header {
+    background-color: #f15b2a;
+    color: white;
+}
+
+body > section {
+    background-color: white;
+    color: black;
+}
+
+body > footer {
+    background-color: #2a9fbc;
+    color: #e5e5e5;
+}
