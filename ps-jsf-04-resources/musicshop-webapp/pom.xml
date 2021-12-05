@@ -16,7 +16,7 @@
         <dependency>
             <groupId>com.jesperdj.jsf</groupId>
             <artifactId>musicshop-resources</artifactId>
-            <version>1.0</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
